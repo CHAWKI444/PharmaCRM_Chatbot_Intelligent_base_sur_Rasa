@@ -1,0 +1,23 @@
+version: "3.1"
+
+stories:
+- story: greet user
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- story: inform visit
+  steps:
+  - intent: inform_visit
+  - action: utter_inform_extract
+
+- story: handle visit details
+  steps:
+  - intent: inform_visit
+  - slot_was_set:
+    - medecin: null
+    - date: null
+    - produit: null
+  - action: utter_inform_extract
+  - intent: affirm
+  - action: action_store_visit

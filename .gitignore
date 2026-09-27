@@ -1,0 +1,9 @@
+venv/
+.venv/
+Test/rasa-env/
+.rasa/
+__pycache__/
+*.pyc
+.env
+crm_data.db
+chroma/

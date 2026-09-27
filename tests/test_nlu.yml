@@ -1,0 +1,10 @@
+version: "3.1"
+nlu:
+- text: j'ai visité le médecin X aujourd'hui, je lui ai présenté A, B et C
+  intent: inform_visit
+  entities:
+  - medecin: X
+  - date: aujourd'hui
+  - produit: A
+  - produit: B
+  - produit: C

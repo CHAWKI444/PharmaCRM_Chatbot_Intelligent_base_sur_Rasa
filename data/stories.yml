@@ -1,0 +1,89 @@
+version: "3.1"
+
+stories:
+- story: greet user
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: happy path then goodbye
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: sad path helped
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path not helped
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: say goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: bot challenge
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- story: confirm and store visit
+  steps:
+  - intent: inform_visit
+    entities:
+    - medecin: "Dr. Dupont"
+    - date: "20 juillet"
+    - produit: "Doliprane"
+  - slot_was_set:
+    - medecin: "Dr. Dupont"
+    - date: "20 juillet"
+  - action: utter_inform_extract
+  - intent: affirm
+  - action: action_store_visit
+
+- story: cancel visit
+  steps:
+  - intent: inform_visit
+  - action: utter_inform_extract
+  - intent: deny
+  - action: utter_visit_cancelled
+
+- story: doctor only
+  steps:
+  - intent: inform_medecin
+  - action: utter_ack_medecin
+
+- story: date only
+  steps:
+  - intent: inform_dates
+  - action: utter_ack_date
+
+- story: request report
+  steps:
+  - intent: request_report
+  - action: action_generate_report

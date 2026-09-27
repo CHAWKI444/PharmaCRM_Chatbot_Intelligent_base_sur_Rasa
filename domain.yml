@@ -1,0 +1,80 @@
+version: "3.1"
+
+intents:
+- greet
+- inform_visit
+- inform_medecin
+- inform_dates
+- goodbye
+- affirm
+- deny
+- mood_great
+- mood_unhappy
+- bot_challenge
+- request_report
+- nlu_fallback
+
+entities:
+- medecin
+- date
+- produit
+
+slots:
+  medecin:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: medecin
+  date:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: date
+  produit:
+    type: list
+    mappings:
+    - type: from_entity
+      entity: produit
+
+responses:
+  utter_greet:
+  - text: "Bonjour. Je peux renseigner un médicament, préparer une visite ou générer un rapport."
+  utter_inform_extract:
+  - text: "J'ai noté : médecin = {medecin}, date = {date}, produits = {produit}. Voulez-vous enregistrer cette visite ?"
+  utter_ack_medecin:
+  - text: "Médecin noté : {medecin}. Indiquez aussi la date de la visite."
+  utter_ack_date:
+  - text: "Date notée : {date}. Indiquez le nom du médecin."
+  utter_visit_cancelled:
+  - text: "D'accord, la visite n'a pas été enregistrée."
+  utter_cheer_up:
+  - text: "Je peux alléger la suite : une question médicament, une visite, ou un rapport."
+  utter_did_that_help:
+  - text: "Est-ce que cela vous aide ?"
+  utter_happy:
+  - text: "Parfait, je reste disponible."
+  utter_goodbye:
+  - text: "Au revoir. Bonne journée."
+  utter_iamabot:
+  - text: "Je suis l'assistant CRM pharmaceutique, propulsé par Rasa."
+  utter_default:
+  - text: "Je n'ai pas compris. Décrivez une visite, citez un médicament, ou demandez un rapport."
+
+actions:
+- utter_greet
+- utter_inform_extract
+- utter_ack_medecin
+- utter_ack_date
+- utter_visit_cancelled
+- utter_cheer_up
+- utter_did_that_help
+- utter_happy
+- utter_goodbye
+- utter_iamabot
+- utter_default
+- action_store_visit
+- action_generate_report
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

@@ -1,0 +1,87 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - Bonjour
+    - Salut
+    - Hello
+    - Bonsoir
+    - Coucou
+
+- intent: inform_visit
+  examples: |
+    - Je veux voir un médecin [Dr. Dupont](medecin) le [20 juillet](date)
+    - Rendez-vous avec [Dr. Martin](medecin) le [15 août](date)
+    - Voir [Dr. Lefèvre](medecin) le [10 septembre](date) pour [Paracétamol](produit)
+    - Consultation avec [Dr. Dubois](medecin) le [25 juillet](date) pour [Ibuprofène](produit) et [Aspirine](produit)
+    - Prendre un rendez-vous avec [Dr. Durand](medecin) le [5 octobre](date) pour [Doliprane](produit)
+    - Je voudrais consulter [Dr. Petit](medecin) le [12 novembre](date)
+    - Rencontrer [Dr. Blanc](medecin) le [30 décembre](date) avec [Amoxicilline](produit)
+
+- intent: goodbye
+  examples: |
+    - Au revoir
+    - Bye
+    - Ciao
+    - À plus tard
+    - Bonne journée
+
+- intent: affirm
+  examples: |
+    - Oui
+    - Ouais
+    - D'accord
+    - Bien sûr
+    - OK
+
+- intent: deny
+  examples: |
+    - Non
+    - Jamais
+    - Pas du tout
+    - Je refuse
+    - Pas d'accord
+
+- intent: mood_great
+  examples: |
+    - Parfait
+    - Très bien
+    - Super
+    - Génial
+    - Excellent
+
+- intent: mood_unhappy
+  examples: |
+    - Mal
+    - Pas bien
+    - Triste
+    - Déprimé
+    - Fatigué
+
+- intent: bot_challenge
+  examples: |
+    - Es-tu un bot ?
+    - Tu es un robot ?
+    - Es-tu humain ?
+    - Êtes-vous une IA ?
+    - Qui es-tu ?
+
+- intent: request_report
+  examples: |
+    - Génère un rapport
+    - Je veux voir le rapport
+    - Donne-moi le résumé
+    - Fais un rapport de la conversation
+    - Montre-moi le rapport
+
+- intent: inform_medecin
+  examples: |
+    - J'ai besoin de voir [Dr. Dupont](medecin)
+    - Je veux consulter [Dr. Martin](medecin)
+    - Rendez-vous avec [Dr. Leclerc](medecin)
+
+- intent: inform_dates
+  examples: |
+    - le [20 juillet](date)
+    - pour le [25 juillet](date)

@@ -1,0 +1,22 @@
+version: "3.1"
+
+rules:
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say who the bot is when challenged
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Generate a report when asked
+  steps:
+  - intent: request_report
+  - action: action_generate_report
+
+- rule: Fallback when the message is not understood
+  steps:
+  - intent: nlu_fallback
+  - action: utter_default
